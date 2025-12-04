@@ -5,7 +5,7 @@ from streamlit_authenticator import Authenticate
 from streamlit_option_menu import option_menu
 
 #Données des utilisateurs
-df_users = pd.read_csv('C:\\Users\\pauli\\Documents\\WCS\\streamlit\\Data\\donnees_utilisateurs - Feuille 1.csv', sep=",")
+df_users = pd.read_csv('donnees_utilisateurs - Feuille 1.csv', sep=",")
 df_users = df_users.set_index('name') # Definis name comme index, pour ensuite transformer le df en dictionnaire adapté pour authenticator
 dict_users = df_users.to_dict(orient= 'index') # Crée un dictionnaire 
 donnees_des_comptes = {"usernames" : dict_users} # Je crée le dict imbriqué adapté à Authenticator
@@ -47,5 +47,6 @@ elif st.session_state["authentication_status"] is False:
     st.error("Le nom de l'utiliateur ou le mot de passe sont incorrect")
 elif st.session_state["authentication_status"] is None : 
     st.warning("Les champs nom d'utilisateur et mot de passe doivent être remplis")
+
 
 
